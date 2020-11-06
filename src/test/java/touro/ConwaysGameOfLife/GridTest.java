@@ -52,7 +52,6 @@ public class GridTest {
         //GIVEN
         Grid grid = new Grid();
         grid.setAlive(1,1);
-        //grid.setAlive(1,3);
 
         //WHEN
         grid.makeMove();
@@ -68,5 +67,37 @@ public class GridTest {
         Grid grid = new Grid();
 
     }
+
+    @Test
+    public void setDead(){
+        //GIVEN
+        Grid grid = new Grid();
+        grid.setAlive(0,0);
+
+        //WHEN
+        grid.setDead(0,0);
+
+        //THEN
+        assertFalse(grid.isAlive(0,0));
+    }
+
+    @Test
+    public void clearBoard(){
+        //GIVEN
+        Grid grid = new Grid();
+        grid.setAlive(0,1);
+        grid.setAlive(0,0);
+
+        //WHEN
+        grid.clearBoard();
+
+        //THEN
+        assertFalse(grid.isAlive(0,1));
+        assertFalse(grid.isAlive(0,0 ));
+
+
+    }
+
+
 
 }
