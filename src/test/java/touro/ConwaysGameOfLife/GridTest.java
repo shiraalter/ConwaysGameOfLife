@@ -14,7 +14,7 @@ public class GridTest {
     @Test
     public void populateBoardCells(){
         //GIVEN & WHEN
-        Grid grid = new Grid(10,10);
+        Grid grid = new Grid();
 
         //THEN
         assertNotNull(grid);
@@ -23,7 +23,7 @@ public class GridTest {
     @Test
     public void countAliveNeighbors(){
         //GIVEN
-        Grid grid = new Grid(20,20);
+        Grid grid = new Grid();
         grid.setAlive(1,1);
         grid.setAlive(1,3);
 
@@ -39,8 +39,7 @@ public class GridTest {
     public void checkStatus(){
 
         //GIVEN
-        Grid grid = new Grid(20,20);
-
+        Grid grid = new Grid();
 
         //WHEN/THEN
         assertFalse(grid.checkStatus(-1,1));
@@ -49,9 +48,9 @@ public class GridTest {
 
 
     @Test
-    public void makeMove() {
+    public void insufficientAliveNeighbors() {
         //GIVEN
-        Grid grid = new Grid(10,10);
+        Grid grid = new Grid();
         grid.setAlive(1,1);
         //grid.setAlive(1,3);
 
@@ -62,4 +61,12 @@ public class GridTest {
         assertFalse(grid.isAlive(1,1));
 
     }
+
+    @Test
+    public void sufficientAliveNeighbors(){
+        //GIVEN
+        Grid grid = new Grid();
+
+    }
+
 }

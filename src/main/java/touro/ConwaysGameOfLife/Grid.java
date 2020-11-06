@@ -6,23 +6,21 @@ public class Grid {
     private boolean[][] board;
     private  Direction[] directions = Direction.values();
 
-    private int height;
-    private int width;
+    private final int HEIGHT = 40;
+    private final int WIDTH = 40;
 
     private boolean isAlive = true;
 
-    public Grid(int width, int height) {
-        this.height = height;
-        this.width = width;
-        this.board = new boolean[width][height];
+    public Grid() {
+        this.board = new boolean[WIDTH][HEIGHT];
     }
 
 
     public void makeMove() {
-        boolean[][] tempBoard = new boolean[width][height];
+        boolean[][] tempBoard = new boolean[WIDTH][HEIGHT];
 
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
+        for (int y = 0; y < HEIGHT; y++) {
+            for (int x = 0; x < WIDTH; x++) {
                 int aliveNeighbors = countAliveNeighbors(x, y);
 
                 if (checkStatus(x, y)) {
@@ -58,10 +56,10 @@ public class Grid {
 
     public boolean checkStatus(int x, int y) {
         //make sure in bounds
-        if (x < 0 || x >= width){
+        if (x < 0 || x >= WIDTH){
             isAlive = false;
         }
-        if(y < 0 || y > height){
+        if(y < 0 || y > HEIGHT){
             isAlive = false;
         }
         return isAlive;
