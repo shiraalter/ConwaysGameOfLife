@@ -77,8 +77,6 @@ public class GridTest {
         //THEN
         grid.isAlive(1,1);
 
-
-
     }
 
     @Test
@@ -119,6 +117,18 @@ public class GridTest {
 
     }
 
+    @Test
+    public void isAliveVariable(){
+        //GIVEN
+        Grid grid = new Grid();
+
+        //WHEN
+        grid.setDead(0,0);
+        grid.setAlive(0,0);
+
+        //THEN
+        grid.isAlive(0,0);
+    }
 
 
 }
