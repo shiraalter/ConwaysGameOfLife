@@ -10,7 +10,7 @@ public class LifeGameMain {
 
         GridMouseListener mouseListener = new GridMouseListener(grid);
         GridView gridView = new GridView(mouseListener, grid);
-        new GameFrame(gridView, grid, mouseListener).setVisible(true);
+        new GameFrame(gridView).setVisible(true);
 
     }
 }

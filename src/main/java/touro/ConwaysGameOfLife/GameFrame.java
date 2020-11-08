@@ -10,14 +10,9 @@ public class GameFrame extends JFrame {
     private JButton clear;
     private JButton play;
     private JButton next;
-    private JPanel viewPanel;
-    private GridMouseListener mouseListener;
-    private GridView gridView;
-    private Grid grid;
-    public GameFrame( GridView gridView, Grid grid, GridMouseListener mouseListener) {
-        mouseListener = mouseListener;
-        gridView = gridView;
-        grid = grid;
+
+    public GameFrame( GridView gridView) {
+
 
         setSize(400, 500);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -35,7 +30,6 @@ public class GameFrame extends JFrame {
         panel.add(next);
 
         add(gridView);
-//        addMouseListener(mouseListener);
         add(panel, BorderLayout.SOUTH);
 
     }

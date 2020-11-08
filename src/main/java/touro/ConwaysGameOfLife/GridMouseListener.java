@@ -16,11 +16,11 @@ public class GridMouseListener implements MouseListener {
         board = grid.getBoard();
     }
 
-    public void setCellCords(int x, int y){
-        this.x = x;
-        this.y = y;
-
-    }
+//    public void setCellCords(int x, int y){
+//        this.x = x;
+//        this.y = y;
+//
+//    }
 
 
 

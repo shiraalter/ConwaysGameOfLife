@@ -13,7 +13,7 @@ public class GridView extends JComponent {
 
     public GridView(GridMouseListener mouseListener, Grid grid) {
         this.grid = grid;
-        this.board =  grid.getBoard();
+        this.board = grid.getBoard();
         this.mouseListener = mouseListener;
 
     }
@@ -23,34 +23,33 @@ public class GridView extends JComponent {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         addMouseListener(mouseListener);
+        grid.setAlive(0, 1);
+        grid.setAlive(5, 1);
+        grid.setAlive(10, 5);
+        grid.setAlive(4, 10);
         paintBoard(g);
     }
 
     private void paintBoard(Graphics g) {
 
-        grid.setAlive(0,1);
-        grid.setAlive(5,1);
-        grid.setAlive(10,5);
-        grid.setAlive(4,10);
 
-        for(int i = 0; i < board.length; i++ ){
-            for(int j = 0; j < board.length; j++){
 
-                if(board[i][j]){
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board.length; j++) {
+
+                if (board[i][j]) {
                     g.setColor(Color.BLUE);
-                    g.fillRect(i * CELL_SIZE,j* CELL_SIZE,CELL_SIZE, CELL_SIZE);
+                    g.fillRect(i * CELL_SIZE, j * CELL_SIZE, CELL_SIZE, CELL_SIZE);
 
-                }
-                else{
+                } else {
                     g.setColor(Color.BLACK);
-                    g.drawRect(i* CELL_SIZE,j* CELL_SIZE,CELL_SIZE, CELL_SIZE);
+                    g.drawRect(i * CELL_SIZE, j * CELL_SIZE, CELL_SIZE, CELL_SIZE);
                 }
 
 
             }
 
         }
-
 
 
     }
