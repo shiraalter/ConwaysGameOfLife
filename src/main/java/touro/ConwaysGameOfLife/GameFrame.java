@@ -11,7 +11,7 @@ public class GameFrame extends JFrame {
     private JButton play;
     private JButton next;
 
-    public GameFrame( GridView gridView) {
+    public GameFrame( GridView gridView, Grid grid) {
 
 
         setSize(400, 500);
@@ -23,7 +23,6 @@ public class GameFrame extends JFrame {
         play = new JButton("Play");
         next = new JButton("Next >");
         panel = new JPanel(new FlowLayout());
-
 
         panel.add(clear);
         panel.add(play);

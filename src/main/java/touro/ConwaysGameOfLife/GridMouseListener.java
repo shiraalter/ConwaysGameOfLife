@@ -16,22 +16,28 @@ public class GridMouseListener implements MouseListener {
         board = grid.getBoard();
     }
 
-//    public void setCellCords(int x, int y){
-//        this.x = x;
-//        this.y = y;
-//
-//    }
+    public void setCellCords(int x, int y){
+        this.x = x;
+        this.y = y;
+
+    }
 
 
 
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {
 
-        boolean cellValue = board[x][y];
-        System.out.println("x = " + x + " y = " + y + " val was = " + board[x][y]);
-        if(cellValue) grid.setDead(x,y);
-        else grid.setAlive(x,y);
-        System.out.println("is now: " + board[x][y]);
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board.length; j++) {
+                if(i == x && j == y ){
+                    boolean cellValue = board[x][y];
+                    System.out.println("x = " + x + " y = " + y + " val was = " + board[x][y]);
+                    if(cellValue) grid.setDead(x,y);
+                    else grid.setAlive(x,y);
+                    System.out.println("is now: " + board[x][y]);
+                }
+            }}
+
 
     }
 

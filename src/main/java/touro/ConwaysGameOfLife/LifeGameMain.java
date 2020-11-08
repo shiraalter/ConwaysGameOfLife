@@ -7,10 +7,8 @@ public class LifeGameMain {
         int HEIGHT = 20;
         int WIDTH = 20;
         Grid grid = new Grid(WIDTH, HEIGHT);
-
-        GridMouseListener mouseListener = new GridMouseListener(grid);
-        GridView gridView = new GridView(mouseListener, grid);
-        new GameFrame(gridView).setVisible(true);
+        GridView gridView = new GridView(grid);
+        new GameFrame(gridView, grid).setVisible(true);
 
     }
 }
