@@ -58,13 +58,26 @@ public class GridTest {
 
         //THEN
         assertFalse(grid.isAlive(1,1));
-
     }
 
+    /**
+     * test that cell will become alive if it has 3 alive neighbors
+     */
     @Test
     public void sufficientAliveNeighbors(){
+
         //GIVEN
         Grid grid = new Grid();
+
+        //WHEN
+        grid.setAlive(0,0);
+        grid.setAlive(1,0);
+        grid.setAlive(2,0);
+
+        //THEN
+        grid.isAlive(1,1);
+
+
 
     }
 
@@ -94,7 +107,15 @@ public class GridTest {
         //THEN
         assertFalse(grid.isAlive(0,1));
         assertFalse(grid.isAlive(0,0 ));
+    }
 
+    @Test
+    public void getBoard(){
+        //GIVEN
+        Grid grid = new Grid();
+
+        //WHEm/THEN
+        assertNotNull(grid.getBoard());
 
     }
 
