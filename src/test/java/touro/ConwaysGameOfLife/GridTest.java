@@ -42,7 +42,7 @@ public class GridTest {
         Grid grid = new Grid();
 
         //WHEN/THEN
-        assertFalse(grid.checkStatus(-1,1));
+        assertFalse(grid.checkInBounds(-1,1));
 
     }
 
