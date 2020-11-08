@@ -6,26 +6,23 @@ public class Grid {
     private boolean[][] board;
     private  Direction[] directions = Direction.values();
 
-    private int height;
-    private int width;
+    private final int HEIGHT = 40;
+    private final int WIDTH = 40;
 
     private boolean isAlive = true;
 
-    public Grid(int width, int height) {
-        this.height = height;
-        this.width = width;
-        this.board = new boolean[width][height];
+    public Grid() {
+        this.board = new boolean[HEIGHT][WIDTH];
     }
 
-
     public void makeMove() {
-        boolean[][] tempBoard = new boolean[width][height];
+        boolean[][] tempBoard = new boolean[HEIGHT][WIDTH];
 
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
+        for (int y = 0; y < HEIGHT; y++) {
+            for (int x = 0; x < WIDTH; x++) {
                 int aliveNeighbors = countAliveNeighbors(x, y);
 
-                if (checkStatus(x, y)) {
+                if (isAlive(x, y)) {
                     if (aliveNeighbors < 2) {
                         setDead(x,y);
                     } else if (aliveNeighbors == 2 || aliveNeighbors == 3) {
@@ -40,31 +37,18 @@ public class Grid {
                 }
             }
         }
-        this.board = tempBoard;
+        board = tempBoard;
     }
 
     public int countAliveNeighbors(int x, int y) {
         int aliveNeighborCount = 0;
         for(Direction d : directions) {
             boolean isAlive = checkDirection(d, x, y);      //check neighbor status
-
-
-            if(isAlive){           //if neighbor cell is has true val, increment live neighbors
+            if(isAlive){                                    //if neighbor cell is has true val, increment live neighbors
                 aliveNeighborCount++;
             }
         }
         return aliveNeighborCount;
-    }
-
-    public boolean checkStatus(int x, int y) {
-        //make sure in bounds
-        if (x < 0 || x >= width){
-            isAlive = false;
-        }
-        if(y < 0 || y > height){
-            isAlive = false;
-        }
-        return isAlive;
     }
 
 
@@ -73,97 +57,106 @@ public class Grid {
     }
 
     public void setAlive(int x, int y){
-        // isAlive = true;
-        this.board[x][y] = true;
+//      isAlive = true;     //necessary?
+        board[x][y] = true;
     }
 
     /**
      * @return value of cell is 0 - dead
      */
     public void setDead(int x, int y){
-        //isAlive = false;
-        this.board[x][y] = false;
+        isAlive = false;
+        board[x][y] = false;
+
     }
 
-
-/*    public List<Cell> getBoard(){
-        return boardCells;
-    }*/
 
 
     public boolean checkDirection(Direction direction, int x, int y) {
         switch (direction) {
             case North:
-                boolean inBounds = checkStatus(x, y+1);
-                if(!inBounds){
-                    return false;
-                }
+                boolean inBounds = checkInBounds(x, y+1);
+                if(!inBounds){ return false;}
                 else{
-                    return this.board[x][y+1];
+                    return board[x][y+1];
                 }
 
             case East:
-                inBounds = checkStatus(x + 1, y);
-                if(!inBounds){
-                    return false;
-                }
+                inBounds = checkInBounds(x + 1, y);
+                if(!inBounds){return false;}
                 else{
-                    return this.board[x+1][y];
+                    return board[x+1][y];
                 }
 
             case South:
-                inBounds = checkStatus(x, y-1);
-                if(!inBounds){
-                    return false;
-                }
+                inBounds = checkInBounds(x, y-1);
+                if(!inBounds){return false;}
                 else{
-                    return this.board[x][y-1];
+                    return board[x][y-1];
                 }
 
             case West:
-                inBounds = checkStatus(x - 1, y);
-                if(!inBounds){
-                    return false;
-                }
+                inBounds = checkInBounds(x - 1, y);
+                if(!inBounds){return false;}
                 else{
-                    return this.board[x -1][y];
+                    return board[x -1][y];
                 }
 
             case NorthEast:
-                inBounds = checkStatus(x + 1, y + 1);
-                if(!inBounds){
-                    return false;
-                }
+                inBounds = checkInBounds(x + 1, y + 1);
+                if(!inBounds){ return false;}
                 else{
-                    return this.board[x + 1][y + 1];
+                    return board[x + 1][y + 1];
                 }
             case NorthWest:
-                inBounds = checkStatus(x - 1, y + 1);
-                if(!inBounds){
-                    return false;
-                }
+                inBounds = checkInBounds(x - 1, y + 1);
+                if(!inBounds){ return false; }
                 else{
-                    return this.board[x - 1][y + 1];
+                    return board[x - 1][y + 1];
                 }
             case SouthEast:
-                inBounds = checkStatus(x + 1, y-1);
-                if(!inBounds){
-                    return false;
-                }
+                inBounds = checkInBounds(x + 1, y-1);
+                if(!inBounds){ return false; }
                 else{
-                    return this.board[x + 1][y-1];
+                    return board[x + 1][y-1];
                 }
             case SouthWest:
-                inBounds = checkStatus(x - 1, y-1);
-                if(!inBounds){
-                    return false;
-                }
+                inBounds = checkInBounds(x - 1, y-1);
+                if(!inBounds){return false;}
                 else{
-                    return this.board[x - 1][y-1];
+                    return board[x - 1][y-1];
                 }
             default:
-                throw new RuntimeException(direction + " is not a known touro.ConwaysGameOfLife.Direction");
+                throw new RuntimeException(direction + " is not a known Direction");    //why does this prevent needing a return statement?
         }
     }
 
+
+    /**
+     *
+     * @param x,y
+     * @return checks if a cell is in bounds and returns isAlive
+     */
+    public boolean checkInBounds(int x, int y) {
+        if (x < 0 || x >= WIDTH){
+            isAlive = false;
+        }
+        if(y < 0 || y > HEIGHT){
+            isAlive = false;
+        }
+        return isAlive;
+    }
+
+    public void clearBoard(){
+        for (int x = 0; x < HEIGHT ; x++) {
+            for (int y = 0; y < WIDTH ; y++) {
+                setDead(x,y);
+            }
+            
+        }
+    }
+
+    public boolean[][] getBoard(){
+        return board;
+    }
 }
