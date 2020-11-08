@@ -18,6 +18,17 @@ public class Grid {
     }
 
 
+    public int[][] getCellCords(int x, int y){
+        int[][] arrayCord = new int[x][y];
+        return arrayCord;
+    }
+    public boolean[][] getBoard(){
+        return this.board;
+    }
+
+    public int getHeight(){return this.height;};
+    public int getWidth(){return this.width;};
+
     public void makeMove() {
         boolean[][] tempBoard = new boolean[width][height];
 
