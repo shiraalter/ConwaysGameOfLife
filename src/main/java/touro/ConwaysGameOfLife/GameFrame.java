@@ -24,6 +24,7 @@ public class GameFrame extends JFrame {
         next = new JButton("Next >");
         panel = new JPanel(new FlowLayout());
 
+
         panel.add(clear);
         panel.add(play);
         panel.add(next);
