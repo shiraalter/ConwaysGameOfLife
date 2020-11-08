@@ -166,4 +166,8 @@ public class Grid {
             
         }
     }
+
+    public boolean[][] getBoard(){
+        return board;
+    }
 }
