@@ -1,6 +1,5 @@
 package touro.ConwaysGameOfLife;
 
-
 public class Grid {
 
     private boolean[][] board;
@@ -14,6 +13,7 @@ public class Grid {
     public Grid() {
         this.board = new boolean[HEIGHT][WIDTH];
     }
+
 
     public void makeMove() {
         boolean[][] tempBoard = new boolean[HEIGHT][WIDTH];

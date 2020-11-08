@@ -2,6 +2,7 @@ package touro.ConwaysGameOfLife;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseListener;
 
 public class GameFrame extends JFrame {
 
@@ -10,8 +11,10 @@ public class GameFrame extends JFrame {
     private JButton play;
     private JButton next;
 
-    public GameFrame(GridView gridView, Grid grid, GridMouseListener mouseListener) {
-        setSize(1000, 400);
+    public GameFrame( GridView gridView, Grid grid) {
+
+
+        setSize(400, 500);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("Game of Life");
         setLayout(new BorderLayout());
@@ -20,12 +23,15 @@ public class GameFrame extends JFrame {
         play = new JButton("Play");
         next = new JButton("Next >");
         panel = new JPanel(new FlowLayout());
+
+
         panel.add(clear);
         panel.add(play);
         panel.add(next);
 
-        add(gridView, BorderLayout.CENTER);
-        addMouseListener(mouseListener);
+        add(gridView);
         add(panel, BorderLayout.SOUTH);
+
     }
+
 }
