@@ -57,7 +57,7 @@ public class Grid {
     }
 
     public void setAlive(int x, int y){
-//        isAlive = true;     //necessary?
+//      isAlive = true;     //necessary?
         board[x][y] = true;
     }
 
@@ -65,7 +65,7 @@ public class Grid {
      * @return value of cell is 0 - dead
      */
     public void setDead(int x, int y){
-         isAlive = false;
+        isAlive = false;
         board[x][y] = false;
 
     }
@@ -76,69 +76,53 @@ public class Grid {
         switch (direction) {
             case North:
                 boolean inBounds = checkStatus(x, y+1);
-                if(!inBounds){
-                    return false;
-                }
+                if(!inBounds){ return false;}
                 else{
                     return board[x][y+1];
                 }
 
             case East:
                 inBounds = checkStatus(x + 1, y);
-                if(!inBounds){
-                    return false;
-                }
+                if(!inBounds){return false;}
                 else{
                     return board[x+1][y];
                 }
 
             case South:
                 inBounds = checkStatus(x, y-1);
-                if(!inBounds){
-                    return false;
-                }
+                if(!inBounds){return false;}
                 else{
                     return board[x][y-1];
                 }
 
             case West:
                 inBounds = checkStatus(x - 1, y);
-                if(!inBounds){
-                    return false;
-                }
+                if(!inBounds){return false;}
                 else{
                     return board[x -1][y];
                 }
 
             case NorthEast:
                 inBounds = checkStatus(x + 1, y + 1);
-                if(!inBounds){
-                    return false;
-                }
+                if(!inBounds){ return false;}
                 else{
                     return board[x + 1][y + 1];
                 }
             case NorthWest:
                 inBounds = checkStatus(x - 1, y + 1);
-                if(!inBounds){
-                    return false;
-                }
+                if(!inBounds){ return false; }
                 else{
                     return board[x - 1][y + 1];
                 }
             case SouthEast:
                 inBounds = checkStatus(x + 1, y-1);
-                if(!inBounds){
-                    return false;
-                }
+                if(!inBounds){ return false; }
                 else{
                     return board[x + 1][y-1];
                 }
             case SouthWest:
                 inBounds = checkStatus(x - 1, y-1);
-                if(!inBounds){
-                    return false;
-                }
+                if(!inBounds){return false;}
                 else{
                     return board[x - 1][y-1];
                 }
