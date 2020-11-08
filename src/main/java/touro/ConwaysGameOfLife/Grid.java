@@ -75,64 +75,69 @@ public class Grid {
     public boolean checkDirection(Direction direction, int x, int y) {
         switch (direction) {
             case North:
-                boolean inBounds = checkStatus(x, y+1);
+                boolean inBounds = checkInBounds(x, y+1);
                 if(!inBounds){ return false;}
                 else{
                     return board[x][y+1];
                 }
 
             case East:
-                inBounds = checkStatus(x + 1, y);
+                inBounds = checkInBounds(x + 1, y);
                 if(!inBounds){return false;}
                 else{
                     return board[x+1][y];
                 }
 
             case South:
-                inBounds = checkStatus(x, y-1);
+                inBounds = checkInBounds(x, y-1);
                 if(!inBounds){return false;}
                 else{
                     return board[x][y-1];
                 }
 
             case West:
-                inBounds = checkStatus(x - 1, y);
+                inBounds = checkInBounds(x - 1, y);
                 if(!inBounds){return false;}
                 else{
                     return board[x -1][y];
                 }
 
             case NorthEast:
-                inBounds = checkStatus(x + 1, y + 1);
+                inBounds = checkInBounds(x + 1, y + 1);
                 if(!inBounds){ return false;}
                 else{
                     return board[x + 1][y + 1];
                 }
             case NorthWest:
-                inBounds = checkStatus(x - 1, y + 1);
+                inBounds = checkInBounds(x - 1, y + 1);
                 if(!inBounds){ return false; }
                 else{
                     return board[x - 1][y + 1];
                 }
             case SouthEast:
-                inBounds = checkStatus(x + 1, y-1);
+                inBounds = checkInBounds(x + 1, y-1);
                 if(!inBounds){ return false; }
                 else{
                     return board[x + 1][y-1];
                 }
             case SouthWest:
-                inBounds = checkStatus(x - 1, y-1);
+                inBounds = checkInBounds(x - 1, y-1);
                 if(!inBounds){return false;}
                 else{
                     return board[x - 1][y-1];
                 }
             default:
-                throw new RuntimeException(direction + " is not a known touro.ConwaysGameOfLife.Direction");
+                throw new RuntimeException(direction + " is not a known Direction");    //why does this prevent needing a return statement?
         }
     }
 
-    public boolean checkStatus(int x, int y) {
-        //make sure in bounds
+
+    /**
+     *
+     * @param x,y
+     * @return checks if a cell is in bounds and returns isAlive
+     */
+    public boolean checkInBounds(int x, int y) {
         if (x < 0 || x >= WIDTH){
             isAlive = false;
         }
