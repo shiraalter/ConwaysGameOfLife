@@ -23,17 +23,15 @@ public class Grid {
 
                 if (isAlive(x,y)) {
                     if (aliveNeighbors < 2 || aliveNeighbors > 3) {
-                        tempBoard[x][y] = false;
-                        //setDead(x, y);
+                       tempBoard[x][y] = false;
+
                     } else if (aliveNeighbors == 2 || aliveNeighbors == 3) {
                         tempBoard[x][y] = true;
-                        //setAlive(x, y);
                     }
                 }
                 else {
                     if (aliveNeighbors == 3) {
                         tempBoard[x][y] = true;
-                        //setAlive(x, y);
                     }
                 }
             }
