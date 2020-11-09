@@ -64,7 +64,7 @@ public class GridTest {
      * test that cell will become alive if it has 3 alive neighbors
      */
     @Test
-    public void sufficientAliveNeighbors(){
+    public void simulateOscillation(){
 
         //GIVEN
         Grid grid = new Grid();
