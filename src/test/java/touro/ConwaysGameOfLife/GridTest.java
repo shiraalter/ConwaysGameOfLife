@@ -125,7 +125,7 @@ public class GridTest {
     }
 
     @Test
-    public void isAliveVariable(){
+    public void isAlive(){
         //GIVEN
         Grid grid = new Grid();
 
