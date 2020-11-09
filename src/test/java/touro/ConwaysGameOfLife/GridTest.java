@@ -70,12 +70,19 @@ public class GridTest {
         Grid grid = new Grid();
 
         //WHEN
-        grid.setAlive(0,0);
-        grid.setAlive(1,0);
-        grid.setAlive(2,0);
+        grid.setAlive(1,1);
+        grid.setAlive(2,1);
+        grid.setAlive(3,1);
+
+        grid.makeMove();
 
         //THEN
-        grid.isAlive(1,1);
+        assertTrue(grid.isAlive(2,2));
+        assertTrue(grid.isAlive(2,1));
+        assertTrue(grid.isAlive(2,0));
+        assertFalse(grid.isAlive(1,1));
+        assertFalse(grid.isAlive(3,1));
+
 
     }
 
