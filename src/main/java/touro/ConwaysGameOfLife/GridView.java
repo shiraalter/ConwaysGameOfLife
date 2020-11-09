@@ -10,7 +10,7 @@ public class GridView extends JComponent {
 
     private Grid grid;
     private int CELL_SIZE = 20;
-    boolean[][] board;
+    private boolean[][] board;
 
 
     public GridView(Grid grid) {
@@ -27,14 +27,10 @@ public class GridView extends JComponent {
         );
     }
 
-
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         paintBoard(g);
-
-
-
     }
 
     private void paintBoard(Graphics g) {
@@ -44,13 +40,10 @@ public class GridView extends JComponent {
                 if (board[i][j]) {
                     g.setColor(Color.BLUE);
                     g.fillRect(i * CELL_SIZE, j * CELL_SIZE, CELL_SIZE, CELL_SIZE);
-                } else {
-                    g.setColor(Color.BLACK);
-                    g.drawRect(i * CELL_SIZE, j * CELL_SIZE, CELL_SIZE, CELL_SIZE);
-
                 }
+                g.setColor(Color.BLACK);
+                g.drawRect(i * CELL_SIZE, j * CELL_SIZE, CELL_SIZE, CELL_SIZE);
             }
-
         }
     }
 

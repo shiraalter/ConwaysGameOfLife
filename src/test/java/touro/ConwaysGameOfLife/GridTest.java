@@ -36,13 +36,13 @@ public class GridTest {
 
 
     @Test
-    public void checkStatus(){
+    public void checkInBounds(){
 
         //GIVEN
         Grid grid = new Grid();
 
         //WHEN/THEN
-        assertFalse(grid.checkStatus(-1,1));
+        assertFalse(grid.checkInBounds(-1,1));
 
     }
 
