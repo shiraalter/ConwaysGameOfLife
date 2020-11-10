@@ -36,13 +36,13 @@ public class GridTest {
 
 
     @Test
-    public void checkInBounds(){
+    public void checkOutOfBounds(){
 
         //GIVEN
         Grid grid = new Grid();
 
         //WHEN/THEN
-        assertFalse(grid.checkInBounds(-1,1));
+        assertTrue(grid.outOfBounds(-1,1));
 
     }
 
@@ -68,12 +68,11 @@ public class GridTest {
 
         //GIVEN
         Grid grid = new Grid();
-
-        //WHEN
         grid.setAlive(1,1);
         grid.setAlive(2,1);
         grid.setAlive(3,1);
 
+        //WHEN
         grid.makeMove();
 
         //THEN
@@ -119,7 +118,7 @@ public class GridTest {
         //GIVEN
         Grid grid = new Grid();
 
-        //WHEm/THEN
+        //WHEN/THEN
         assertNotNull(grid.getBoard());
 
     }
