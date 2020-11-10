@@ -122,7 +122,7 @@ public class Grid {
                     return board[x - 1][y - 1];
                 }
             default:
-                throw new RuntimeException(direction + " is not a known Direction");    //why does this prevent needing a return statement?
+                throw new RuntimeException("An error occurred");    //why does this prevent needing a return statement?
         }
     }
 
