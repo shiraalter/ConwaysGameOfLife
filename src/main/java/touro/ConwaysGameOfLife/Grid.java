@@ -9,8 +9,8 @@ public class Grid {
     private final int HEIGHT = 10;
 
 
-    public Grid() {
-        this.board = new boolean[WIDTH][HEIGHT];
+
+    public Grid() { this.board = new boolean[WIDTH][HEIGHT];
     }
 
 
@@ -155,13 +155,5 @@ public class Grid {
     public boolean[][] getBoard() {
         return board;
     }
-/*
-    public int getHeight() {
-        return this.HEIGHT;
-    }
-
-    public int getWidth() {
-        return this.WIDTH;
-    }*/
 
 }
