@@ -50,6 +50,18 @@ public class Grid {
         return aliveNeighborCount;
     }
 
+    public int countLiveCells() {
+        int liveCellCount = 0;
+        for (int x = 0; x < WIDTH; x++) {
+            for (int y = 0; y < HEIGHT; y++) {
+                if(isAlive(x,y)) {
+                    liveCellCount++;
+                }
+            }
+        }
+        return liveCellCount;
+    }
+
     public boolean isAlive(int x, int y) {
         return board[x][y];
     }
