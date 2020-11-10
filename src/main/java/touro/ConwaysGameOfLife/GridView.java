@@ -10,12 +10,10 @@ public class GridView extends JComponent {
 
     private Grid grid;
     private int CELL_SIZE = 20;
-    private boolean[][] board;
 
 
     public GridView(Grid grid) {
         this.grid = grid;
-        this.board = grid.getBoard();
         this.addMouseListener(new MouseAdapter() {
               @Override
               public void mouseClicked(MouseEvent e) {
@@ -34,7 +32,7 @@ public class GridView extends JComponent {
     }
 
     private void paintBoard(Graphics g) {
-
+        boolean board[][] = grid.getBoard();
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
                 if (board[i][j]) {
@@ -48,6 +46,7 @@ public class GridView extends JComponent {
     }
 
     private void setCell(MouseEvent e) {
+        boolean board[][] = grid.getBoard();
         int x = e.getX();
         int y = e.getY();
         int row = x / CELL_SIZE;

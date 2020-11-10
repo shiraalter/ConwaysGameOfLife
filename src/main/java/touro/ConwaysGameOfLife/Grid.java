@@ -5,8 +5,8 @@ public class Grid {
     private boolean[][] board;
     private Direction[] directions = Direction.values();
 
-    private final int WIDTH = 10;
-    private final int HEIGHT = 10;
+    private final int WIDTH = 20;
+    private final int HEIGHT =20;
 
 
     public Grid() {
@@ -70,61 +70,53 @@ public class Grid {
     public boolean checkDirection(Direction direction, int x, int y) {
         switch (direction) {
             case North:
-                boolean inBounds = checkInBounds(x, y + 1);
-                if (!inBounds) {
+                if (outOfBounds(x, y + 1)) {
                     return false;
                 } else {
                     return board[x][y + 1];
                 }
 
             case East:
-                inBounds = checkInBounds(x + 1, y);
-                if (!inBounds) {
+                if (outOfBounds(x + 1, y)) {
                     return false;
                 } else {
                     return board[x + 1][y];
                 }
 
             case South:
-                inBounds = checkInBounds(x, y - 1);
-                if (!inBounds) {
+                if (outOfBounds(x, y - 1)) {
                     return false;
                 } else {
                     return board[x][y - 1];
                 }
 
             case West:
-                inBounds = checkInBounds(x - 1, y);
-                if (!inBounds) {
+                if (outOfBounds(x - 1, y)) {
                     return false;
                 } else {
                     return board[x - 1][y];
                 }
 
             case NorthEast:
-                inBounds = checkInBounds(x + 1, y + 1);
-                if (!inBounds) {
+                if (outOfBounds(x + 1, y + 1)) {
                     return false;
                 } else {
                     return board[x + 1][y + 1];
                 }
             case NorthWest:
-                inBounds = checkInBounds(x - 1, y + 1);
-                if (!inBounds) {
+                if (outOfBounds(x - 1, y + 1)) {
                     return false;
                 } else {
                     return board[x - 1][y + 1];
                 }
             case SouthEast:
-                inBounds = checkInBounds(x + 1, y - 1);
-                if (!inBounds) {
+                if (outOfBounds(x + 1, y - 1)) {
                     return false;
                 } else {
                     return board[x + 1][y - 1];
                 }
             case SouthWest:
-                inBounds = checkInBounds(x - 1, y - 1);
-                if (!inBounds) {
+                if (outOfBounds(x - 1, y - 1)) {
                     return false;
                 } else {
                     return board[x - 1][y - 1];
@@ -137,10 +129,10 @@ public class Grid {
 
     /**
      * @param x,y
-     * @return checks if a cell is in bounds
+     * @return true if a cell is out of bounds
      */
-    public boolean checkInBounds(int x, int y) {
-        return !(x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT);
+    public boolean outOfBounds(int x, int y) {
+        return x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT;
     }
 
     public void clearBoard() {
@@ -155,13 +147,5 @@ public class Grid {
     public boolean[][] getBoard() {
         return board;
     }
-/*
-    public int getHeight() {
-        return this.HEIGHT;
-    }
-
-    public int getWidth() {
-        return this.WIDTH;
-    }*/
 
 }
