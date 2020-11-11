@@ -1,11 +1,7 @@
-package touro.ConwaysGameOfLife;
+package touro.conwaysgameoflife;
 
 import javax.swing.*;
-import javax.xml.transform.stream.StreamResult;
 import java.awt.*;
-import java.awt.event.MouseListener;
-import java.util.Arrays;
-import java.util.stream.Stream;
 
 public class GameFrame extends JFrame {
 

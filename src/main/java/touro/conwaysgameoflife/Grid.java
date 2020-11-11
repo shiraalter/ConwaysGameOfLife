@@ -1,4 +1,4 @@
-package touro.ConwaysGameOfLife;
+package touro.conwaysgameoflife;
 
 public class Grid {
 
