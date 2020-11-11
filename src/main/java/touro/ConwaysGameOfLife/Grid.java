@@ -22,6 +22,8 @@ public class Grid {
             for (int x = 0; x < WIDTH; x++) {
                 int aliveNeighbors = countAliveNeighbors(x, y);
 
+                
+
                 if (isAlive(x, y)) {
                     if (aliveNeighbors < 2) {
                         setDead(x,y);
