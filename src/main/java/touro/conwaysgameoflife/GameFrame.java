@@ -1,10 +1,7 @@
-package touro.ConwaysGameOfLife;
+package touro.conwaysgameoflife;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class GameFrame extends JFrame {
@@ -41,15 +38,12 @@ public class GameFrame extends JFrame {
         playPause = new JButton("Play \u25b6");
         playPause.addActionListener(actionEvent -> changeButton());
         playPause.addActionListener(actionEvent -> playGame());
-        //pause = new JButton("Pause \u23F8");
-        //pause.addActionListener(actionEvent -> pauseGame());
         next = new JButton("Next >");
         next.addActionListener(actionEvent -> nextMove());
         panel = new JPanel(new FlowLayout());
 
         panel.add(clear);
         panel.add(playPause);
-        //panel.add(pause);
         panel.add(next);
     }
 

@@ -1,4 +1,4 @@
-package touro.ConwaysGameOfLife;
+package touro.conwaysgameoflife;
 
 import javax.swing.*;
 import java.awt.*;

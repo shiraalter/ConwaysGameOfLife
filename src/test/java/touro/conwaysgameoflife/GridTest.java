@@ -1,4 +1,4 @@
-package touro.ConwaysGameOfLife;
+package touro.conwaysgameoflife;
 
 
 import org.junit.Test;
