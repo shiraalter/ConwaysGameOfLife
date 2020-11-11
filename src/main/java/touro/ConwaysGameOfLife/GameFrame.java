@@ -1,8 +1,11 @@
 package touro.ConwaysGameOfLife;
 
 import javax.swing.*;
+import javax.xml.transform.stream.StreamResult;
 import java.awt.*;
 import java.awt.event.MouseListener;
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class GameFrame extends JFrame {
 
@@ -11,6 +14,8 @@ public class GameFrame extends JFrame {
     private JPanel panel;
     private JButton clear;
     private JButton next;
+
+    private JButton play;
 
     public GameFrame(GridView gridView, Grid grid) {
         this.grid = grid;
@@ -44,4 +49,7 @@ public class GameFrame extends JFrame {
         grid.clearBoard();
         gridView.repaint();
     }
+
+
+
 }
