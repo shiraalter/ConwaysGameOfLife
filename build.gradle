@@ -11,6 +11,17 @@ repositories {
     mavenCentral()
 }
 
+//https://stackoverflow.com/questions/4871656/using-gradle-to-build-a-jar-with-dependencies/4894308#4894308
+jar {
+    manifest {
+        attributes "Main-Class": "touro.ConwaysGameOfLife.LifeGameMain"
+    }
+    //this will put all the dependencies in the jar file
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
