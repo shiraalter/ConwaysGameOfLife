@@ -21,19 +21,8 @@ public class Grid {
             for (int y = 0; y < HEIGHT; y++) {
                 int aliveNeighbors = countAliveNeighbors(x, y);
 
-                if (isAlive(x,y)) {
-                    if (aliveNeighbors < 2 || aliveNeighbors > 3) {
-                       tempBoard[x][y] = false;
-
-                    } else if (aliveNeighbors == 2 || aliveNeighbors == 3) {
-                        tempBoard[x][y] = true;
-                    }
-                }
-                else {
-                    if (aliveNeighbors == 3) {
-                        tempBoard[x][y] = true;
-                    }
-                }
+                tempBoard[x][y] = aliveNeighbors == 3 || (board[x][y] && aliveNeighbors== 2);
+                
             }
         }
         board = tempBoard;
