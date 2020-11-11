@@ -2,7 +2,7 @@
 
 Conway's Game of life is a cellular automaton created by J.H Conway.  
 The game depicts how complex shapes can be created from simple patterns.  
-This project uses Java to implement Conway's game of life.  
+This project uses Java to implement Conway's Game of Life.  
 
 `To Play`
 
