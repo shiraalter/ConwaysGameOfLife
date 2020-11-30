@@ -5,7 +5,6 @@ public class LifeGameMain {
 
         Grid grid = new Grid();
         GridView gridView = new GridView(grid);
-        new GameFrame(gridView, grid).setVisible(true);
-
+        new GameFrame(gridView,grid).setVisible(true);
     }
 }

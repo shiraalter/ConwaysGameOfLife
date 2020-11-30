@@ -10,8 +10,8 @@ public class GameFrame extends JFrame {
     private JPanel panel;
     private JButton clear;
     private JButton next;
-
     private JButton play;
+    private int delay = 200;
 
     public GameFrame(GridView gridView, Grid grid) {
         this.grid = grid;
@@ -26,14 +26,32 @@ public class GameFrame extends JFrame {
         clear.addActionListener(actionEvent -> reset());
         next = new JButton("Next >");
         next.addActionListener(actionEvent -> nextMove());
+        play = new JButton("Play \u25B6");
+        play.addActionListener(actionEvent -> playLoop());
         panel = new JPanel(new FlowLayout());
 
         panel.add(clear);
         panel.add(next);
+        panel.add(play);
 
         add(gridView);
         add(panel, BorderLayout.SOUTH);
 
+    }
+
+    private void playLoop() {
+        Thread thread = new Thread(() -> {
+            while (true) {
+                grid.makeMove();
+                gridView.repaint();
+                try {
+                    Thread.sleep(delay);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        thread.start();
     }
 
     private void nextMove() {
@@ -45,7 +63,4 @@ public class GameFrame extends JFrame {
         grid.clearBoard();
         gridView.repaint();
     }
-
-
-
 }
